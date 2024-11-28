@@ -15,7 +15,7 @@
             <button id="ajou" class="border rounded-md bg-green-400 py-2 text-white ">Ajouter un joueur</button>
             <button id="modifier" class="border rounded-md bg-green-400 py-2 text-white">Modifier un joueur</button>
             <button id="supprimer" class="border rounded-md bg-green-400 py-2 text-white">Supprimer un joueur</button>
-            <select class="">
+            <select class="" id="formation">
                 <option value="" disabled selected>Formation</option>
                 <option value=" 4-3-3 "> 4-3-3 </option>
                 <option value="4-4-2">4-4-2</option>
@@ -59,6 +59,42 @@
             <div class="">
                 <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[405px] my-[25px]">
             </div>
+            <!--4-4-2-->
+            <div class="hidden">
+                <div>
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-52 my-[580px]">
+            </div>
+            <div class="">
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[108px] my-[520px]">
+            </div>
+            <div class="">
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[25px] my-[500px]">
+            </div>
+            <div class="">
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[325px] my-[520px]">
+            </div>
+            <div class="">
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[408px] my-[500px]">
+            </div>
+            <div class="">
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[410px] my-[260px]">
+            </div>
+            <div class="">
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[330px] my-[270px]">
+            </div>
+            <div class="">
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[102px] my-[270px]">
+            </div>
+            <div class="">
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[25px] my-[260px]">
+            </div>
+            <div class="">
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[100px] my-[10px]">
+            </div>
+            <div class="">
+                <img src="images/badge_gold.webp" class="absolute top-10 w-20 h-28 mx-[338px] my-[10px]">
+            </div>
+        </div>
             
             
             <div id="formulle" class="mt-8 absolute top-6 left-[460px] bg-green-400 hidden opacity-100">
@@ -79,29 +115,29 @@
         <div class="flex justify-center p-2 ">
         <div class=" flex flex-col gap-1 ">
         <div class=" flex   flex-col gap-1 ">
-        <input type="text" class="bg-slate-200" placeholder="name">
-        <input type="text" class="bg-slate-200" placeholder="photo">
-        <input type="text" class="bg-slate-200" placeholder="nationality">
-        <input type="text" class="bg-slate-200" placeholder="flag">
-        <input type="text" class="bg-slate-200" placeholder="club">
-        <input type="text" class="bg-slate-200" placeholder="logo">
-        <input type="text" class="bg-slate-200" placeholder="rating">
+        <input type="text" class="bg-slate-200" id="inp1" placeholder="name">
+        <input type="text" class="bg-slate-200" id="inp2" placeholder="photo">
+        <input type="text" class="bg-slate-200" id="inp3" placeholder="nationality">
+        <input type="text" class="bg-slate-200" id="inp4" placeholder="flag">
+        <input type="text" class="bg-slate-200" id="inp5" placeholder="club">
+        <input type="text" class="bg-slate-200" id="inp6" placeholder="logo">
+        <input type="text" class="bg-slate-200" id="inp7" placeholder="rating">
         </div>
         <div class=" flex   flex-col  gap-1 hidden" id="GK">
-            <input type="text" class="bg-slate-200" placeholder="diving">
-            <input type="text" class="bg-slate-200" placeholder="handling">
-            <input type="text" class="bg-slate-200" placeholder="kicking">
-            <input type="text" class="bg-slate-200" placeholder="reflexes">
-            <input type="text" class="bg-slate-200" placeholder="speed">
-            <input type="text" class="bg-slate-200" placeholder="positioning">
+            <input type="text" class="bg-slate-200" id="inp8" placeholder="diving">
+            <input type="text" class="bg-slate-200" id="inp9" placeholder="handling">
+            <input type="text" class="bg-slate-200" id="inp10" placeholder="kicking">
+            <input type="text" class="bg-slate-200" id="inp11" placeholder="reflexes">
+            <input type="text" class="bg-slate-200" id="inp12" placeholder="speed">
+            <input type="text" class="bg-slate-200" id="inp13" placeholder="positioning">
         </div>
             <div class=" flex   flex-col  gap-1 hidden" id="other">
-                <input type="text" class="bg-slate-200" placeholder="pace">
-                <input type="text" class="bg-slate-200" placeholder="shooting">
-                <input type="text" class="bg-slate-200" placeholder="passing">
-                <input type="text" class="bg-slate-200" placeholder="dribbling">
-                <input type="text" class="bg-slate-200" placeholder="defending">
-                <input type="text" class="bg-slate-200" placeholder="physical">
+                <input type="text" class="bg-slate-200" id="inp14" placeholder="pace">
+                <input type="text" class="bg-slate-200" id="inp15" placeholder="shooting">
+                <input type="text" class="bg-slate-200" id="inp16" placeholder="passing">
+                <input type="text" class="bg-slate-200" id="inp17" placeholder="dribbling">
+                <input type="text" class="bg-slate-200" id="inp18" placeholder="defending">
+                <input type="text" class="bg-slate-200" id="inp19" placeholder="physical">
             </div>
         </div>
 
@@ -113,49 +149,54 @@
             </div>
             
         </div>
-        <div class="container relative  w-[500px] h-[300px]  ">
-            <img src="images/badge_gold.webp" class="w-52" >
-            <div class="font-bold text-xl mx-12 -my-56">
-                <h1>90</h1>
-                <h1>CF</h1>
-            </div>
-                <div class="absolute w-44 h-44 top-1/4 left-10 my-2 -mx-4">
-                    <img src="images/messi-removebg-preview.png" >
-                    <h1 class="font-bold flex justify-center">MESSI</h1>
-                    <div class="flex gap-1 font-bold text-xs">
-                    <div class="div1 flex flex-col">
-                        <h1>PAC</h1>
-                        <h1>80</h1>
-                    </div>
-                    <div class="div2 flex flex-col">
-                        <h1>SHO</h1>
-                        <h1>87</h1>
-                    </div>
-                    <div class="div3 flex flex-col">
-                        <h1>PAS</h1>
-                        <h1>90</h1>
-                    </div>
-                    <div class="div4 flex flex-col">
-                        <h1>DRI</h1>
-                        <h1>94</h1>
-                    </div>
-                    <div class="div5 flex flex-col">
-                        <h1>DEF</h1>
-                        <h1>33</h1>
-                    </div>
-                    <div class="div6 flex flex-col">
-                        <h1>PHY</h1>
-                        <h1>64</h1>
-                    </div>
+        <div id="playersCarte" class="flex flex-wrap gap-2 p-2 w-[28rem] overflow-auto  h-[40rem] border border-black rounded-md">
+            <!-- <div class="container relative  w-[500px] h-[300px]  ">
+                <img src="images/badge_gold.webp" class="w-52" >
+                <div class="font-bold text-xl mx-12 -my-56">
+                    <h1>90</h1>
+                    <h1>CF</h1>
                 </div>
-                <img src="https://cdn.sofifa.net/flags/ar.png" rel="" class="w-5 mx-16 my-1">
-                <img src="https://cdn.sofifa.net/meta/team/239235/120.png" class="w-5 mx-[95px] -my-[20px]">
-                </div>
-            
-            </div>
+                    <div class="absolute w-44 h-44 top-1/4 left-10 my-2 -mx-4">
+                        <img src="images/messi-removebg-preview.png" >
+                        <h1 class="font-bold flex justify-center">MESSI</h1>
+                        <div class="flex gap-1 font-bold text-xs">
+                        <div class="div1 flex flex-col">
+                            <h1>PAC</h1>
+                            <h1>80</h1>
+                        </div>
+                        <div class="div2 flex flex-col">
+                            <h1>SHO</h1>
+                            <h1>87</h1>
+                        </div>
+                        <div class="div3 flex flex-col">
+                            <h1>PAS</h1>
+                            <h1>90</h1>
+                        </div>
+                        <div class="div4 flex flex-col">
+                            <h1>DRI</h1>
+                            <h1>94</h1>
+                        </div>
+                        <div class="div5 flex flex-col">
+                            <h1>DEF</h1>
+                            <h1>33</h1>
+                        </div>
+                        <div class="div6 flex flex-col">
+                            <h1>PHY</h1>
+                            <h1>64</h1>
+                        </div>
+                    </div>
+                    <img src="https://cdn.sofifa.net/flags/ar.png" rel="" class="w-5 mx-16 my-1">
+                    <img src="https://cdn.sofifa.net/meta/team/239235/120.png" class="w-5 mx-[95px] -my-[20px]">
+                    </div>
+
+                
+            </div> -->
+        </div>
+
     </div>
     
 
     <script src="js/script.js"></script>
+    <script src="js/carte.js"></script>
 </body>
 </html>

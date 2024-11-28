@@ -34,9 +34,17 @@ Button4.addEventListener('click',function(){
     phi.classList.remove('opacity-40');
 });
 });
+// const formation=document.getElementById('formation');
+// formation.addEventListener('click',function(){
+
+// })
 // Button2.addEventListener('click',function(){
 
 // });
 // Button3.addEventListener('click',function(){
 
 // });
+
+
+
+
