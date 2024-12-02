@@ -34,14 +34,37 @@ Button4.addEventListener('click',function(){
     phi.classList.remove('opacity-40');
 });
 });
-// const formation=document.getElementById('formation');
-// formation.addEventListener('click',function(){
+document.addEventListener('DOMContentLoaded', function() {
+    const formation = document.getElementById('formation');
+    formation.addEventListener('change', function() {
+        const selectedFormation = formation.value;
+        console.log(selectedFormation); 
+        let psi = document.getElementById('4-4-2');
+        let rho = document.getElementById('4-3-3');
+        if (selectedFormation === '4-4-2') {
+        psi.classList.remove('hidden');
+        rho.classList.add('hidden');
+        }else if (selectedFormation === '4-3-3'){
+            rho.classList.remove('hidden');
+            psi.classList.add('hidden');
+        }
+       
+      
+    });
+});
+// document.addEventListener('DOMContentLoaded', function() {
+//     const Button3 = document.getElementById('supprimer');
+//     const playersCarte= document.getElementById('playersCarte');
+//     Button3.addEventListener('click',function(){
+//         for (let i=0;i<playersCarte.children.length;i++){
+//             playersCarte.addEventListener('click',function(){
+//                 playersCarte.children[i].remove();
 
-// })
-// Button2.addEventListener('click',function(){
-
+//             })
+//         }
+//     });
 // });
-// Button3.addEventListener('click',function(){
+// Button2.addEventListener('click',function(){
 
 // });
 
