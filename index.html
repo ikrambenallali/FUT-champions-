@@ -1,57 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <title>FUT</title>
-</head>
-<body class="bg-green-400">
-    <div class="container ">
-        <div class="flex justify-center mt-12  ">
-        <select class="postion  bg-slate-200 " id="select">
-            <option value="" disabled selected>Position</option>
-            <option value="RW">RW</option>
-            <option value="ST">ST</option>
-            <option value="CM">CM</option>
-            <option value="CB">CB</option>
-            <option value="RB">RB</option>
-            <option value="LW">LW</option>
-            <option value="LB">LB</option>
-            <option value="GK">GK</option>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>FUT-champions</title>
+  </head>
+  <body class="bg-yellow-100" id="bodyy">
+    <div class="container flex items-center">
+      <!--sidbar-->
+      <div class=" flex flex-col gap-6 w-48 p-4" id="buttons">
+        <button id="ajou" class="border rounded-md bg-green-400 py-2 text-white" >
+          Ajouter un joueur
+        </button>
+        <select class="" id="formation">
+          <option value="" disabled selected>Formation</option>
+          <option value="4-3-3">4-3-3</option>
+          <option value="4-4-2">4-4-2</option>
         </select>
+      </div>
+<!--terrain-->
+      <div class="mx-32">
+        <img src="images/fieldiii.png" class="terrain-image h-auto w-full max-w-lg relative sm:w-full md:w-full lg:w-full xl:w-full"id="imagee"/ >
+        <!--4-3-3-->
+        <div class="hidden" id="4-3-3">
+          <div class="absolute top-10 w-20 h-28 mx-52 my-[580px] " onclick="testTerainCard(this)" >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div class="absolute top-10 w-20 h-28 mx-[108px] my-[520px]"  onclick="testTerainCard(this)">
+            <img src="images/badge_gold.webp" data-player-name="Player2" />
+          </div>
+          <div class="absolute top-10 w-20 h-28 mx-[25px] my-[500px]" onclick="testTerainCard(this)">
+            <img src="images/badge_gold.webp" data-player-name="Player3" />
+          </div>
+          <div class="absolute top-10 w-20 h-28 mx-[325px] my-[520px]" onclick="testTerainCard(this)" >
+            <img src="images/badge_gold.webp" data-player-name="Player4" />
+          </div>
+          <div class="absolute top-10 w-20 h-28 mx-[408px] my-[500px]" onclick="testTerainCard(this)">
+            <img src="images/badge_gold.webp" data-player-name="Player5" />
+          </div>
+          <div  class="absolute top-10 w-20 h-28 mx-[350px] my-[270px]"  onclick="testTerainCard(this)">
+            <img src="images/badge_gold.webp" data-player-name="Player6" />
+          </div>
+          <div class="absolute top-10 w-20 h-28 mx-[85px] my-[270px]" onclick="testTerainCard(this)"  >
+            <img src="images/badge_gold.webp" data-player-name="Player7" />
+          </div>
+          <div class="absolute top-10 w-20 h-28 mx-[213px] my-[280px]" onclick="testTerainCard(this)">
+            <img src="images/badge_gold.webp" data-player-name="Player8" />
+          </div>
+          <div class="absolute top-10 w-20 h-28 mx-[25px] my-[25px]" onclick="testTerainCard(this)">
+            <img src="images/badge_gold.webp" data-player-name="Player9" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[215px] my-[10px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player10" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[405px] my-[25px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player11" />
+          </div>
         </div>
-        <div class="flex justify-center p-2 ">
-        <div class=" flex flex-col gap-1 ">
-        <div class=" flex   flex-col gap-1 ">
-        <input type="text" class="bg-slate-200" placeholder="name">
-        <input type="text" class="bg-slate-200" placeholder="photo">
-        <input type="text" class="bg-slate-200" placeholder="nationality">
-        <input type="text" class="bg-slate-200" placeholder="flag">
-        <input type="text" class="bg-slate-200" placeholder="club">
-        <input type="text" class="bg-slate-200" placeholder="logo">
-        <input type="text" class="bg-slate-200" placeholder="rating">
+
+        <!--4-4-2-->
+        <div class="hidden" id="4-4-2">
+          <div
+            class="absolute top-10 w-20 h-28 mx-52 my-[580px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[108px] my-[520px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[25px] my-[500px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[325px] my-[520px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[408px] my-[500px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[410px] my-[260px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[330px] my-[270px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[102px] my-[270px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[25px] my-[260px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[100px] my-[10px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
+          <div
+            class="absolute top-10 w-20 h-28 mx-[338px] my-[10px]"
+            onclick="testTerainCard(this)"
+          >
+            <img src="images/badge_gold.webp" data-player-name="Player1" />
+          </div>
         </div>
-        <div class=" flex   flex-col  gap-1 hidden" id="GK">
-            <input type="text" class="bg-slate-200" placeholder="diving">
-            <input type="text" class="bg-slate-200" placeholder="handling">
-            <input type="text" class="bg-slate-200" placeholder="kicking">
-            <input type="text" class="bg-slate-200" placeholder="reflexes">
-            <input type="text" class="bg-slate-200" placeholder="speed">
-            <input type="text" class="bg-slate-200" placeholder="positioning">
-        </div>
-            <div class=" flex   flex-col  gap-1 hidden" id="other">
-                <input type="text" class="bg-slate-200" placeholder="pace">
-                <input type="text" class="bg-slate-200" placeholder="shooting">
-                <input type="text" class="bg-slate-200" placeholder="passing">
-                <input type="text" class="bg-slate-200" placeholder="dribbling">
-                <input type="text" class="bg-slate-200" placeholder="defending">
-                <input type="text" class="bg-slate-200" placeholder="physical">
+<!--formullaire-->
+        <div
+          id="formulle"
+          class="mt-8 absolute top-6 left-[460px] bg-green-400 hidden opacity-100"
+        >
+          <div class="container">
+            <div class="flex justify-center mt-12">
+              <select class="postion bg-slate-200" id="select">
+                <option value="" disabled selected>Position</option>
+                <option value="RW">RW</option>
+                <option value="ST">ST</option>
+                <option value="CM">CM</option>
+                <option value="CB">CB</option>
+                <option value="RB">RB</option>
+                <option value="LW">LW</option>
+                <option value="LB">LB</option>
+                <option value="GK">GK</option>
+              </select>
             </div>
+            <div class="flex justify-center p-2">
+              <div class="flex flex-col gap-1">
+                <div class="flex flex-col gap-1">
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp1"
+                    placeholder="name"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp2"
+                    placeholder="photo"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp3"
+                    placeholder="nationality"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp4"
+                    placeholder="flag"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp5"
+                    placeholder="club"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp6"
+                    placeholder="logo"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp7"
+                    placeholder="rating"
+                  />
+                </div>
+                <!--GK-->
+                <div class="flex flex-col gap-1 hidden" id="GK">
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp8"
+                    placeholder="diving"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp9"
+                    placeholder="handling"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp10"
+                    placeholder="kicking"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp11"
+                    placeholder="reflexes"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp12"
+                    placeholder="speed"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp13"
+                    placeholder="positioning"
+                  />
+                </div>
+                <!--CM CB LW LB ST-->
+                <div class="flex flex-col gap-1 hidden" id="other">
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp14"
+                    placeholder="pace"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp15"
+                    placeholder="shooting"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp16"
+                    placeholder="passing"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp17"
+                    placeholder="dribbling"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp18"
+                    placeholder="defending"
+                  />
+                  <input
+                    type="text"
+                    class="bg-slate-200"
+                    id="inp19"
+                    placeholder="physical"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <button id="valider" data-player-index="" class="border rounded-md bg-slate-200 py-1">
+                Valider
+              </button>
+            </div>
+          </div>
         </div>
-        </div>
+      </div>
+<!--carte-->
+      <div  id="playersCarte"  class="playersCarte flex flex-wrap gap-2 p-2 w-[30rem] overflow-auto h-[40rem] border border-black rounded-md " >
+
+      </div>
+      <!-- edit delet button-->
+      <div class="" id="buttonss">
+        <button class="delet hidden border rounded-full" id="delet">
+          Supprimer
+        </button>
+        <button class="edit hidden border rounded-full" id="edit">
+          Modifier
+        </button>
+      </div>
+      <div id="playerDetailsCard"></div>
     </div>
+
     <script src="js/script.js"></script>
-</body>
+    <script src="js/javascript.js"></script>
+
+    
+  </body>
 </html>
