@@ -12,6 +12,7 @@ positionSelect.addEventListener("change", function () {
     document.getElementById("GK").classList.add("hidden");
   }
 });
+
 //ajouter
 Button1.addEventListener("click", function () {
   const form = document.getElementById("formulle");

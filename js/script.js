@@ -64,7 +64,7 @@ button.addEventListener("click", function () {
   console.log(playerData);
 
   // Validation des champs requis
-
+  console.log("console.log(playerData.rating);", playerData.rating);
   if (!playerData.name || !playerData.photo) {
     alert("Veuillez remplir les champs requis !");
     return;
@@ -74,30 +74,68 @@ button.addEventListener("click", function () {
   } else if (!playerData.club || !playerData.logo) {
     alert("Veuillez remplir les champs requis !");
     return;
-  } else if (!playerData.rating) {
+  } 
+  else if(!playerData.rating) {
     alert("Veuillez remplir les champs requis !");
+
+  }
+  else if (parseInt(playerData.rating) > 100) {
+    alert("Les statistiques entre 0 et 100 !");
+
     return;
   }
   if (playerPosition === "GK") {
     if (!playerData.diving || !playerData.handling) {
       alert("Veuillez remplir les champs requis !");
       return;
-    } else if (!playerData.kicking || !playerData.reflexes) {
+      
+    } else if (parseInt(playerData.diving) > 100 || parseInt(playerData.handling) >100) {
+      alert("Les statistiques entre 0 et 100 !");
+  
+      return;
+    }
+    else if (!playerData.kicking || !playerData.reflexes) {
       alert("Veuillez remplir les champs requis !");
       return;
-    } else if (!playerData.speed || !playerData.positioning) {
+    }
+    else if (parseInt(playerData.kicking) > 100 || parseInt(playerData.reflexes) >100) {
+      alert("Les statistiques entre 0 et 100 !");
+  
+      return;
+    }
+     else if (!playerData.speed || !playerData.positioning) {
       alert("Veuillez remplir les champs requis !");
+      return;
+    }
+    else if (parseInt(playerData.speed) > 100 || parseInt(playerData.positioning) >100) {
+      alert("Les statistiques entre 0 et 100 !");
+  
       return;
     }
   } else {
     if (!playerData.pace || !playerData.shooting) {
       alert("Veuillez remplir les champs requis !");
       return;
-    } else if (!playerData.passing || !playerData.dribbling) {
+    } else if (parseInt(playerData.pace) > 100 || parseInt(playerData.shooting) >100) {
+      alert("Les statistiques entre 0 et 100 !");
+  
+      return;
+    }
+    else if (!playerData.passing || !playerData.dribbling) {
       alert("Veuillez remplir les champs requis !");
       return;
-    } else if (!playerData.defending || !playerData.physical) {
+    } else if (parseInt(playerData.passing) > 100 || parseInt(playerData.dribbling) >100) {
+      alert("Les statistiques entre 0 et 100 !");
+  
+      return;
+    }
+    else if (!playerData.defending || !playerData.physical) {
       alert("Veuillez remplir les champs requis !");
+      return;
+    }
+    else if (parseInt(playerData.defending) > 100 || parseInt(playerData.physical) >100) {
+      alert("Les statistiques entre 0 et 100 !");
+  
       return;
     }
   }
@@ -113,7 +151,8 @@ button.addEventListener("click", function () {
   }
 
   localStorage.setItem("players", JSON.stringify(players));
-  document.getElementById('formulle').classList.add('hidden');
+  document.getElementById("formulle").classList.add("hidden");
+  document.getElementById("formulle").reset();
   button.removeAttribute("data-player-index");
   showPLyers();
 });
@@ -138,9 +177,9 @@ function showPLyers() {
     if (player.position != "GK") {
       playerCard.innerHTML = `
 
-           <img src="images/badge_gold.webp" class=" w-52 " >
-            <button data-player-index="${i}"  class="delet hidden  border  rounded-full  " id="delet">Supprimer</button> 
-              <button data-player-index="${i}" onclick="editPlayer(event)" class="edit text-red-500   border hidden rounded-full "  id="edit">Modifier</button> 
+           <img src="images/badge_gold.webp" class=" w-52  " >
+            <button data-player-index="${i}"  class="delet hidden   border  rounded-full  " id="delet">Supprimer</button> 
+              <button data-player-index="${i}" onclick="editPlayer(event)" class="edit    border hidden rounded-full "  id="edit">Modifier</button> 
                          <div class="font-bold text-xl mx-12 -my-56">
                              <h1>${player.rating}</h1>
                              <h1>CF</h1>
@@ -245,22 +284,20 @@ function showPLyers() {
     }
     //hover
     playerCard.addEventListener("mouseenter", function () {
-      playerCard.classList.add("bg-green-400");
-      playerCard.classList.add("opacity-20");
+      playerCard.classList.add("bg-yellow-100");
+      playerCard.classList.add("opacity-80");
       const deleteButton = playerCard.querySelector(".delet");
       console.log;
       const editButton = playerCard.querySelector(".edit");
 
       deleteButton.classList.remove("hidden");
       editButton.classList.remove("hidden");
-      deleteButton.classList.remove("opacity-20");
       console.log("hi");
-      editButton.classList.remove("opacity-20");
     });
 
     playerCard.addEventListener("mouseleave", function () {
-      playerCard.classList.remove("bg-green-400");
-      playerCard.classList.remove("opacity-20");
+      playerCard.classList.remove("bg-yellow-100");
+      playerCard.classList.remove("opacity-80");
       const deleteButton = playerCard.querySelector(".delet");
       const editButton = playerCard.querySelector(".edit");
 
@@ -386,7 +423,7 @@ function selectPlayer(element) {
           <img src="images/badge_gold.webp" class="w-52">
           <div class="font-bold text-xl mx-12 -my-56">
             <h1>${playerSelected.rating}</h1>
-            <h1>GK</h1>
+            <h1>CF</h1>
           </div>
           <div class="absolute w-44 h-44 top-[19%] left-10 my-2 -mx-4 flex flex-col justify-center items-center">
             <img src="${playerSelected.photo}">
@@ -443,15 +480,15 @@ function choosePlayer(element) {
     cartTrain.innerHTML = "";
     cartTrain.appendChild(newCard);
 
-    cartTrain.querySelector(".opacity-20").classList.remove("opacity-20");
-    cartTrain.querySelector(".bg-green-400").classList.remove("bg-green-400");
+    cartTrain.querySelector(".opacity-80").classList.remove("opacity-80");
+    cartTrain.querySelector(".bg-yellow-100").classList.remove("bg-yellow-100");
     cartTrain.classList.add(
       "flex",
       "justify-center",
       "items-center",
       "scale-50",
       "-translate-x-5",
-      "-translate-y-[25%]",
+      "-translate-y-[25%]"
     );
   }
 }
