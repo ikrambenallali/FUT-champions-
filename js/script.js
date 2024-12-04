@@ -43,7 +43,7 @@ button.addEventListener("click", function () {
     club: document.getElementById("inp5").value,
     logo: document.getElementById("inp6").value,
     rating: document.getElementById("inp7").value,
-    position: playerPosition, 
+    position: playerPosition,
   };
   if (playerPosition === "GK") {
     playerData.diving = document.getElementById("inp8").value;
@@ -64,11 +64,43 @@ button.addEventListener("click", function () {
   console.log(playerData);
 
   // Validation des champs requis
+
   if (!playerData.name || !playerData.photo) {
     alert("Veuillez remplir les champs requis !");
     return;
+  } else if (!playerData.nationality || !playerData.flag) {
+    alert("Veuillez remplir les champs requis !");
+    return;
+  } else if (!playerData.club || !playerData.logo) {
+    alert("Veuillez remplir les champs requis !");
+    return;
+  } else if (!playerData.rating) {
+    alert("Veuillez remplir les champs requis !");
+    return;
   }
-
+  if (playerPosition === "GK") {
+    if (!playerData.diving || !playerData.handling) {
+      alert("Veuillez remplir les champs requis !");
+      return;
+    } else if (!playerData.kicking || !playerData.reflexes) {
+      alert("Veuillez remplir les champs requis !");
+      return;
+    } else if (!playerData.speed || !playerData.positioning) {
+      alert("Veuillez remplir les champs requis !");
+      return;
+    }
+  } else {
+    if (!playerData.pace || !playerData.shooting) {
+      alert("Veuillez remplir les champs requis !");
+      return;
+    } else if (!playerData.passing || !playerData.dribbling) {
+      alert("Veuillez remplir les champs requis !");
+      return;
+    } else if (!playerData.defending || !playerData.physical) {
+      alert("Veuillez remplir les champs requis !");
+      return;
+    }
+  }
   const playerIndex = button.getAttribute("data-player-index");
   if (playerIndex === null || playerIndex === "") {
     // ajouter un nouveau joueur
@@ -81,17 +113,17 @@ button.addEventListener("click", function () {
   }
 
   localStorage.setItem("players", JSON.stringify(players));
-
+  document.getElementById('formulle').classList.add('hidden');
   button.removeAttribute("data-player-index");
   showPLyers();
 });
-//afficher les joueurs 
+//afficher les joueurs
 document.addEventListener("DOMContentLoaded", showPLyers());
 
 function showPLyers() {
   console.log("im called");
 
-  const cartContainer = document.getElementById("playersCarte");//parent(la carte)
+  const cartContainer = document.getElementById("playersCarte"); //parent(la carte)
   console.log(cartContainer);
   const players = JSON.parse(localStorage.getItem("players"));
 
@@ -99,17 +131,16 @@ function showPLyers() {
 
   for (let i = 0; i < players.length; i++) {
     const player = players[i];
-    const playerCard = document.createElement("div");//enfant(les informations)
+    const playerCard = document.createElement("div"); //enfant(les informations)
     playerCard.setAttribute("onclick", "choosePlayer(this)");
     playerCard.className = "container relative  w-auto h-[300px]  ";
     console.log("player.position : ", player.position);
     if (player.position != "GK") {
       playerCard.innerHTML = `
-            <i id="icon" class="icon absolute hidden top-32 left-24 z-50 fa-regular fa-trash-can"></i>
 
-           <img src="images/badge_gold.webp" class=" w-52" >
-           <button class="delet hidden border  rounded-full  " id="delet">Supprimer</button> 
-              <button data-player-index="${i}" onclick="editPlayer(event)" class="edit  border hidden rounded-full "  id="edit">Modifier</button> 
+           <img src="images/badge_gold.webp" class=" w-52 " >
+            <button data-player-index="${i}"  class="delet hidden  border  rounded-full  " id="delet">Supprimer</button> 
+              <button data-player-index="${i}" onclick="editPlayer(event)" class="edit text-red-500   border hidden rounded-full "  id="edit">Modifier</button> 
                          <div class="font-bold text-xl mx-12 -my-56">
                              <h1>${player.rating}</h1>
                              <h1>CF</h1>
@@ -166,8 +197,8 @@ function showPLyers() {
     } else {
       playerCard.innerHTML = `
              <img src="images/badge_gold.webp" class="w-full" >
-               <button class="delet hidden border  rounded-full  " id="delet">Supprimer</button> 
-              <button data-player-index="${i}" onclick="editPlayer(event)" class="edit hidden border  rounded-full "  id="edit">Modifier</button> 
+               <button data-player-index="${i}" class="delet  hidden border  rounded-full  " id="delet">Supprimer</button> 
+              <button data-player-index="${i}" onclick="editPlayer(event)" class="edit hidden border   rounded-full "  id="edit">Modifier</button> 
          <div class="font-bold text-xl mx-12 -my-56">
              <h1>${player.rating}</h1>
              <h1>CF</h1>
@@ -212,16 +243,18 @@ function showPLyers() {
 
       cartContainer.appendChild(playerCard);
     }
-//hover
+    //hover
     playerCard.addEventListener("mouseenter", function () {
       playerCard.classList.add("bg-green-400");
       playerCard.classList.add("opacity-20");
       const deleteButton = playerCard.querySelector(".delet");
+      console.log;
       const editButton = playerCard.querySelector(".edit");
 
       deleteButton.classList.remove("hidden");
       editButton.classList.remove("hidden");
       deleteButton.classList.remove("opacity-20");
+      console.log("hi");
       editButton.classList.remove("opacity-20");
     });
 
@@ -235,17 +268,18 @@ function showPLyers() {
       editButton.classList.add("hidden");
     });
   }
-  removePlayer();
 }
 //supprimer
-function removePlayer() {
-  const delet = document.querySelectorAll(".delet");
-  delet.forEach((element) => {
-    element.addEventListener("click", function () {
-      element.closest(".container").remove();
-    });
+const delet = document.querySelectorAll(".delet");
+delet.forEach((element) => {
+  element.addEventListener("click", function () {
+    const playerIndex = element.getAttribute("data-player-index");
+    players.splice(playerIndex, 1);
+    localStorage.setItem("players", JSON.stringify(players));
+    element.closest(".container").remove();
   });
-}
+});
+
 //modifier
 function editPlayer(e) {
   const playerIndex = e.target.getAttribute("data-player-index");
@@ -307,7 +341,7 @@ function selectPlayer(element) {
 
     if (playerSelected.position !== "GK") {
       card.innerHTML = `
-          <img src="images/badge_gold.webp" class="w-52">
+          <img src="images/badge_gold.webp" class="w-[15%]">
           <div class="font-bold text-xl mx-12 -my-56">
             <h1>${playerSelected.rating}</h1>
             <h1>CF</h1>
@@ -416,7 +450,8 @@ function choosePlayer(element) {
       "justify-center",
       "items-center",
       "scale-50",
-      "-translate-x-5"
+      "-translate-x-5",
+      "-translate-y-[25%]",
     );
   }
 }

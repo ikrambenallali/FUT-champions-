@@ -1,3 +1,9 @@
 .hidden {
     display: none;
 }
+.terrain .delet  {
+    display: none;
+}
+.terrain .edit {
+    display: none;
+}
