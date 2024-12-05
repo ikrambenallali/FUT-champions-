@@ -30,7 +30,6 @@ async function init() {
 init();
 //ajouter players
 let players = JSON.parse(localStorage.getItem("players")) || [];
-
 const button = document.getElementById("valider");
 button.addEventListener("click", function () {
   const playerPosition = document.getElementById("select").value;
@@ -152,7 +151,6 @@ button.addEventListener("click", function () {
 
   localStorage.setItem("players", JSON.stringify(players));
   document.getElementById("formulle").classList.add("hidden");
-  document.getElementById("formulle").reset();
   button.removeAttribute("data-player-index");
   showPLyers();
 });
@@ -287,12 +285,10 @@ function showPLyers() {
       playerCard.classList.add("bg-yellow-100");
       playerCard.classList.add("opacity-80");
       const deleteButton = playerCard.querySelector(".delet");
-      console.log;
       const editButton = playerCard.querySelector(".edit");
 
       deleteButton.classList.remove("hidden");
       editButton.classList.remove("hidden");
-      console.log("hi");
     });
 
     playerCard.addEventListener("mouseleave", function () {
@@ -464,10 +460,10 @@ function selectPlayer(element) {
   }
 }
 //Positionne un joueur selectioner sur une carte sur le terrain.
-let cartTrain;
+let cartTrain ="";
 let playerChoosed;
 function choosePlayer(element) {
-  if (cartTrain) {
+  if (cartTrain != "") {
     const newCard = document.createElement("div");
     newCard.innerHTML = element.innerHTML;
     newCard.className = element.className;

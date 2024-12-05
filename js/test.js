@@ -365,50 +365,7 @@ async function loadData() {
       document.getElementById("inp19").value = players[playerIndex].physical;
     }
   }
-  //afficher les informations 
-  function affichinf(event) {
-    const buttonn = event.target; // Récupérer l'élément qui a déclenché l'événement
 
-    const playerIndex = buttonn.getAttribute("data-player-index");
-    const afficherButton = document.getElementById("afficher");
-    afficherButton.setAttribute("data-player-index", playerIndex);
-  
-    document.getElementById("select").value = players[playerIndex].position;
-    if (players[playerIndex].position === "GK") {
-      document.getElementById("GK").classList.remove("hidden");
-      document.getElementById("other").classList.add("hidden");
-    } else {
-      document.getElementById("other").classList.remove("hidden");
-      document.getElementById("GK").classList.add("hidden");
-    }
-  
-    document.getElementById("formulle").classList.remove("hidden");
-    document.getElementById("inp1").value = players[playerIndex].name;
-    document.getElementById("inp2").value = players[playerIndex].photo;
-    document.getElementById("inp3").value = players[playerIndex].nationality;
-    document.getElementById("inp4").value = players[playerIndex].flag;
-    document.getElementById("inp5").value = players[playerIndex].club;
-    document.getElementById("inp6").value = players[playerIndex].logo;
-    document.getElementById("inp7").value = players[playerIndex].rating;
-    console.log(players[playerIndex].position);
-  
-    if (players[playerIndex].position === "GK") {
-      document.getElementById("inp8").value = players[playerIndex].diving;
-      document.getElementById("inp9").value = players[playerIndex].handling;
-      document.getElementById("inp10").value = players[playerIndex].kicking;
-      document.getElementById("inp11").value = players[playerIndex].reflexes;
-      document.getElementById("inp12").value = players[playerIndex].speed;
-      document.getElementById("inp13").value = players[playerIndex].positioning;
-    } else {
-      document.getElementById("inp14").value = players[playerIndex].pace;
-      document.getElementById("inp15").value = players[playerIndex].shooting;
-      document.getElementById("inp16").value = players[playerIndex].passing;
-      document.getElementById("inp17").value = players[playerIndex].dribbling;
-      document.getElementById("inp18").value = players[playerIndex].defending;
-      document.getElementById("inp19").value = players[playerIndex].physical;
-    }
-    
-  }
   //ajouter les joueurs au terrain
   //Affiche les details d'un joueur selectione.
   let card = "";
@@ -544,8 +501,4 @@ async function loadData() {
     }
   }
   //preparer l'emplacement sur le terrain
-  function testTerainCard(element) {
-    cartTrain = element;
-    console.log("testTerainCard : ", element);
-  }
   
