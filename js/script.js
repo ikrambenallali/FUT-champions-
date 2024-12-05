@@ -458,6 +458,7 @@ function selectPlayer(element) {
         `;
     }
   }
+  
 }
 //Positionne un joueur selectioner sur une carte sur le terrain.
 let cartTrain ="";
@@ -492,4 +493,14 @@ function choosePlayer(element) {
 function testTerainCard(element) {
   cartTrain = element;
   console.log("testTerainCard : ", element);
+}
+
+function afficherinformation(){
+  let playerclicker=document.querySelectorAll('.container');
+  let playercart=document.getElementById('playerCard');
+  playerclicker.addEventListener('click',function(){
+    playercart.name=innerHTML;
+    console.log( playercart.name);
+  })
+  return afficherinformation;
 }
